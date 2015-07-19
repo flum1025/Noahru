@@ -4,7 +4,7 @@
 ##What is it?
 
 rubyで書かれた さらすてぃAPIのクライアントライブラリです。  
-たった４行で姉妹と会話することができます。  
+たった2行で姉妹と会話することができます。  
 apiについての説明は[さらすてぃ姉妹のAPI](http://flum.pw/sarasty/api.php)  
 公式サイトは[さらすてぃ姉妹のサイト](http://flum.pw/sarasty/)  
   
