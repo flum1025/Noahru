@@ -37,6 +37,8 @@ dialogue.configure config = {
 ###/apis/get_user_recent
 
 ##Notice
+現在サーバー側の原因で連続でリクエストすると"502 Bad Gateway"エラーが返ります。  
+現在修正中です。  
 エラーが発生した場合はNoahruErrorをraiseします。  
 /Noahru/noahru.rbをrequireすることですべてのライブラリを呼び出すことができますが、  
 最小限だけにとどめたい場合は/Noahru/lib/の中から必要なものだけrequireしてください。  

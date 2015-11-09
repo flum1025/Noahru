@@ -1,6 +1,6 @@
 module Noahru
   class Command
-    attr_accessor :sister, :user_id, :mode
+    attr_accessor :sister, :user_id
     
     def initialize(api_key)
       @client = Client.new(api_key)
@@ -16,7 +16,6 @@ module Noahru
       return data = {
         :sister => self.sister,
         :user_id => self.user_id,
-        :mode => self.mode,
       }
     end
     
@@ -24,8 +23,7 @@ module Noahru
       base_url = "http://api.flum.pw/apis/command?api_key=#{@client.get_api_key}"
       base_url << "&sister=#{self.sister}" unless self.sister.nil?
       base_url << "&user_id=#{self.user_id}" unless self.user_id.nil?
-      base_url << "&mode=#{self.mode}" unless self.mode.nil?
-      base_url << "&utt=#{talk}"
+      base_url << "&command=#{talk}"
       return URI.escape(base_url)
     end
     
@@ -33,10 +31,9 @@ module Noahru
       response = open(build_url(talk))
       result = JSON.parse(response.read)
       raise NoahruError, result['error']['message'] unless result['error'].nil?
-      self.mode = result['mode']
       self.user_id = result['user_id']
       self.sister = result['sister']
-      return result['utt']
+      return result['response']
     end
   end
 end

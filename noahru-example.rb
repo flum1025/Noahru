@@ -15,7 +15,7 @@ api_key = ""
 ###dialogue
 dialogue = Noahru::Dialogue.new(api_key)
 dialogue.configure config = {
-  :sister => "noah",
+  :sister => "sarasty_noah",
   :user_id => "flum_",
   :mode => "markov",
 }
@@ -26,18 +26,17 @@ puts dialogue.get_current_data
 ###command
 command = Noahru::Command.new(api_key)
 command.configure config = {
-  :sister => "noah",
+  :sister => "sarasty_noah",
   :user_id => "flum_",
-  :mode => "好き？",
 }
-puts command.send_command ""
+puts command.send_command "learn"
 puts command.get_current_data
 ###ここまで
 
 ###get_talk
 get_talk = Noahru::Get_talk.new(api_key)
 get_talk.configure config = {
-  :context => "",
+  :context => "ABCDEFGH",
 }
 puts get_talk.get_talk
 puts get_talk.get_current_data
