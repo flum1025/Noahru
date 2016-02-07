@@ -19,7 +19,7 @@ module Noahru
     end
     
     def build_url
-      base_url = "http://api.flum.pw/apis/get_user_recent?api_key=#{@client.get_api_key}"
+      base_url = "#{@client.base_url}/apis/get_user_recent?api_key=#{@client.get_api_key}"
       base_url << "&user_id=#{self.user_id}" unless self.user_id.nil?
       return URI.escape(base_url)
     end

@@ -20,7 +20,7 @@ module Noahru
     end
     
     def build_url(talk)
-      base_url = "http://api.flum.pw/apis/command?api_key=#{@client.get_api_key}"
+      base_url = "#{@client.base_url}/apis/command?api_key=#{@client.get_api_key}"
       base_url << "&sister=#{self.sister}" unless self.sister.nil?
       base_url << "&user_id=#{self.user_id}" unless self.user_id.nil?
       base_url << "&command=#{talk}"
