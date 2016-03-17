@@ -2,7 +2,13 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/noahru`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+さらすてぃAPIのクライアントライブラリです。  
+たった2行で姉妹と会話することができます。  
+apiについての説明は[さらすてぃ姉妹のAPI](http://flum.pw/sarasty/api.php)  
+公式サイトは[さらすてぃ姉妹のサイト](http://flum.pw/sarasty/)  
+
+質問等ありましたらTwitter:[@flum_](https://twitter.com/flum_)までお願いします。
+
 
 ## Installation
 
@@ -22,7 +28,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+requireしてから
+
+```
+dialogue = Noahru::Dialogue.new(api_key)
+puts dialogue.create_dialogue "たおの事どう思う？" #=>その内ヤバイ罪犯しそう
+```
+
+たったこれだけで会話することができます。   
+詳しいパラメータ等は、さらすてぃ姉妹のサイトを参照して  
+```
+dialogue.configure config = {
+  :sister => "noah",
+  :user_id => "flum_",
+  :mode => "markov",
+}
+```
+の様な感じでセットしてください。
+
+##Supported APIs
+###/apis/dialogue
+###/apis/command
+###/apis/get_talk
+###/apis/get_user_recent
 
 ## Development
 
