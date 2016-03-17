@@ -1,5 +1,7 @@
-path = File.expand_path('../', __FILE__)
-require File.join(path, 'noahru/noahru.rb')
+# Coding: UTF-8
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'noahru'
 
 api_key = ""
 
@@ -50,4 +52,3 @@ get_user_recent.configure config = {
 puts get_user_recent.get_user_recent
 puts get_user_recent.get_current_data
 ###ここまで
-
