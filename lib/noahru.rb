@@ -1,5 +1,6 @@
 require "noahru/version"
-
-module Noahru
-  # Your code goes here...
-end
+require "noahru/client"
+require "noahru/command"
+require "noahru/dialogue"
+require "noahru/get_talk"
+require "noahru/get_user_recent"
