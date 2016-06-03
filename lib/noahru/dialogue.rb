@@ -1,47 +1,28 @@
 require 'open-uri'
 require 'json'
+require 'uri'
+require 'active_support'
+require 'active_support/core_ext'
 
 module Noahru
   class Dialogue
-    attr_accessor :sister, :user_id, :mode, :context
+    attr_accessor :request_params, :response_params
     
     def initialize(api_key)
       @client = Client.new(api_key)
     end
     
     def configure(options = {})
-      options.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
-    end
-        
-    def get_current_data
-      return data = {
-        :sister => self.sister,
-        :user_id => self.user_id,
-        :mode => self.mode,
-        :context => self.context,
-      }
+      @request_params = options.to_param
     end
     
-    def build_url(talk)
-      base_url = "#{@client.base_url}/apis/dialogue?api_key=#{@client.get_api_key}"
-      base_url << "&sister=#{self.sister}" unless self.sister.nil?
-      base_url << "&user_id=#{self.user_id}" unless self.user_id.nil?
-      base_url << "&mode=#{self.mode}" unless self.mode.nil?
-      base_url << "&context=#{self.context}" unless self.context.nil?
-      base_url << "&utt=#{talk}" unless talk.nil?
-      return URI.escape(base_url)
-    end
-    
-    def create_dialogue talk
-      response = open(build_url(talk))
+    def create_dialogue talk, options = {}
+      uri = URI(File.join(@client.base_url, 'apis/dialogue'))
+      uri.query = options.merge(api_key: @client.api_key).to_param
+      response = open(uri)
       result = JSON.parse(response.read)
       raise NoahruError, result['error']['message'] unless result['error'].nil?
-      self.context = result['context']
-      self.mode = result['mode']
-      self.user_id = result['user_id']
-      self.sister = result['sister']
+      @response_params = result
       return result['utt']
     end
   end
