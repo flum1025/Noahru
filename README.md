@@ -38,19 +38,15 @@ puts dialogue.create_dialogue "たおの事どう思う？" #=>その内ヤバ�
 たったこれだけで会話することができます。   
 詳しいパラメータ等は、さらすてぃ姉妹のサイトを参照して  
 ```
-dialogue.configure config = {
-  :sister => "noah",
-  :user_id => "flum_",
-  :mode => "markov",
+dialogue.create_dialogue "おはよう", {
+  sister: :sarasty_noah,
+  mode: :api
 }
 ```
 の様な感じでセットしてください。
 
 ##Supported APIs
 ###/apis/dialogue
-###/apis/command
-###/apis/get_talk
-###/apis/get_user_recent
 
 ## Development
 
