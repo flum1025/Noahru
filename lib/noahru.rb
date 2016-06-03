@@ -1,6 +1,3 @@
 require "noahru/version"
 require "noahru/client"
-require "noahru/command"
 require "noahru/dialogue"
-require "noahru/get_talk"
-require "noahru/get_user_recent"
