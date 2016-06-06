@@ -16,8 +16,8 @@ api_key = ""
 
 ###dialogue
 dialogue = Noahru::Dialogue.new(api_key)
-puts dialogue.create_dialogue "おはよう", {
-  sister: :sarasty_noah,
-  mode: :api
+dialogue.create_dialogue "おはよう",{
+  mode: :markov_advance
 }
+p response = dialogue.response_params()
 ###ここまで
