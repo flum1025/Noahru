@@ -4,8 +4,8 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 さらすてぃAPIのクライアントライブラリです。  
 たった2行で姉妹と会話することができます。  
-apiについての説明は[さらすてぃ姉妹のAPI](http://flum.pw/sarasty/api.php)  
-公式サイトは[さらすてぃ姉妹のサイト](http://flum.pw/sarasty/)  
+apiについての説明は[さらすてぃ姉妹のAPI](http://sarasty.flum.pw/api.php)  
+公式サイトは[さらすてぃ姉妹のサイト](http://sarasty.flum.pw/)  
 
 質問等ありましたらTwitter:[@flum_](https://twitter.com/flum_)までお願いします。
 
